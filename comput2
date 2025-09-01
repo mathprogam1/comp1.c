@@ -1,1 +1,40 @@
+#include <stdio.h>
+#include <string.h>
 
+void ordenarAlfabeticamente(char vetor[3][50]) {
+    char temp[50];
+    for (int i = 0; i < 3; i++) {
+        for (int j = i + 1; j < 3; j++) {
+            if (strcmp(vetor[i], vetor[j]) > 0) {
+               
+                strcpy(temp, vetor[i]);
+                strcpy(vetor[i], vetor[j]);
+                strcpy(vetor[j], temp);
+            }
+        }
+    }
+}
+
+int main() {
+
+    char vetor1[3][50], vetor2[3][50], vetor3[3][50];
+    
+    for (int i = 0; i < 3; i++) {
+        printf("Digite o %dº nome: ", i + 1);
+        scanf("%s", vetor1[i]);
+        strcpy(vetor2[i], vetor1[i]);
+        strcpy(vetor3[i], vetor1[i]);
+    }
+
+    ordenarAlfabeticamente(vetor1);
+    ordenarAlfabeticamente(vetor2);
+    ordenarAlfabeticamente(vetor3);
+
+    printf("\nNomes em ordem:\n");
+
+
+    for (int i = 0; i < 3; i++) {
+        printf("%s ", vetor1[i]);
+    }
+
+}
